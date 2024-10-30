@@ -2,7 +2,7 @@ import React from "react";
 
 interface Todo {
   id: number;
-  name: string;
+  desc: string;
   completed: boolean;
 }
 
@@ -19,7 +19,7 @@ const TodoItem: React.FC<TodoItemProps> = ({ todo, onUpdate, onDelete }) => {
 
   return (
     <div style={styles.container}>
-      <span data-testid={`todo-name-${todo.id}`}>{todo.name}</span>
+      <span data-testid={`todo-desc-${todo.id}`}>{todo.desc}</span>
       <div style={styles.buttonsContainer}>
         {!todo.completed && (
           <>

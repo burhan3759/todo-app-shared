@@ -2,7 +2,7 @@ import { useState, useEffect } from "react";
 
 interface Todo {
   id: number;
-  name: string;
+  desc: string;
   completed: boolean;
 }
 
@@ -38,7 +38,7 @@ export const useTodoActions = ({
 
   const filterBySearchTerm = (todos: Todo[]): Todo[] => {
     return todos.filter((todo) =>
-      todo.name.toLowerCase().includes(searchTerm.toLowerCase())
+      todo.desc.toLowerCase().includes(searchTerm.toLowerCase())
     );
   };
 

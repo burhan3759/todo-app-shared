@@ -1,52 +1,52 @@
 export const todoList = [
   {
     id: 1,
-    name: "Hello World",
+    desc: "Hello World",
     completed: false,
   },
   {
     id: 2,
-    name: "Learn React Native",
+    desc: "Learn React Native",
     completed: true,
   },
   {
     id: 3,
-    name: "Finish Homework",
+    desc: "Finish Homework",
     completed: false,
   },
   {
     id: 4,
-    name: "Buy Groceries",
+    desc: "Buy Groceries",
     completed: false,
   },
   {
     id: 5,
-    name: "Exercise",
+    desc: "Exercise",
     completed: true,
   },
   {
     id: 6,
-    name: "Read a Book",
+    desc: "Read a Book",
     completed: false,
   },
   {
     id: 7,
-    name: "Clean the House",
+    desc: "Clean the House",
     completed: true,
   },
   {
     id: 8,
-    name: "Prepare Presentation",
+    desc: "Prepare Presentation",
     completed: false,
   },
   {
     id: 9,
-    name: "Fix Bug in Code",
+    desc: "Fix Bug in Code",
     completed: true,
   },
   {
     id: 10,
-    name: "React Native New",
+    desc: "React Native New",
     completed: false,
   },
 ];

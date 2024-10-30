@@ -3,7 +3,7 @@ import { todoList } from "../data/todoList";
 
 interface Todo {
   id: number;
-  name: string;
+  desc: string;
   completed: boolean;
 }
 
@@ -39,7 +39,7 @@ export const useTodos = (): UseTodosResult => {
       ...prev,
       {
         id: generatedId,
-        name: todo,
+        desc: todo,
         completed: false,
       },
     ]);
