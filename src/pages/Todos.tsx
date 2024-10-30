@@ -6,7 +6,7 @@ import AddTodoForm from "../component/AddTodoForm";
 import "../styles.css";
 
 const Todos: React.FC = () => {
-  const { todos, loading, error, addTodo, updateTodo, deleteTodo } = useTodos();
+  const { todos, addTodo, updateTodo, deleteTodo } = useTodos();
   const { filteredTodos, showCompleted, toggleShowCompleted, searchTodos } =
     useTodoActions({ todos });
 
@@ -14,7 +14,7 @@ const Todos: React.FC = () => {
     addTodo(newTodo);
   };
 
-  const handleDelete = (id: string) => {
+  const handleDelete = (id: number) => {
     const confirmDelete = window.confirm(
       "Are you sure you want to delete this todo?"
     );
@@ -31,20 +31,22 @@ const Todos: React.FC = () => {
         placeholder="Search todos"
         onChange={(e) => searchTodos(e.target.value)}
         style={styles.searchInput}
+        data-testid="search-input"
       />
 
       <AddTodoForm addTodo={handleAddTodo} />
 
-      <button onClick={toggleShowCompleted} style={styles.button}>
+      <button 
+        onClick={toggleShowCompleted} 
+        style={styles.button} 
+        data-testid="toggle-completed-btn"
+      >
         {showCompleted ? "Hide Completed" : "Show Completed"}
       </button>
 
-      {loading && <div style={styles.loading}>Loading...</div>}
-      {error && <div style={styles.error}>{error}</div>}
-
-      <div style={{ marginBottom: 30 }} />
-
-      <ul style={styles.todoList}>
+      <div style={styles.spacing} />
+            
+      <ul style={styles.todoList} data-testid="todo-item">
         {filteredTodos.map((item) => (
           <TodoItem
             key={item.id}
@@ -99,4 +101,7 @@ const styles: { [key: string]: React.CSSProperties } = {
     listStyleType: "none",
     padding: 0,
   },
+  spacing: {
+    marginBottom: 30,
+  }
 };

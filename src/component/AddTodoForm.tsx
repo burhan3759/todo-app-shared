@@ -22,8 +22,13 @@ const AddTodoForm: React.FC<AddTodoProps> = ({ addTodo }) => {
         value={text}
         onChange={(e) => setText(e.target.value)}
         style={styles.input}
+        data-testid="add-todo-input"
       />
-      <button onClick={handleAddTodo} style={styles.button}>
+      <button 
+        onClick={handleAddTodo} 
+        style={styles.button}
+        data-testid="add-todo-btn"
+      >
         Add
       </button>
     </div>

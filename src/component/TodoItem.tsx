@@ -1,15 +1,15 @@
 import React from "react";
 
 interface Todo {
-  id: string;
+  id: number;
   name: string;
   completed: boolean;
 }
 
 interface TodoItemProps {
   todo: Todo;
-  onUpdate: (id: string, updatedTodo: Todo) => void;
-  onDelete: (id: string) => void;
+  onUpdate: (id: number, updatedTodo: Todo) => void;
+  onDelete: (id: number) => void;
 }
 
 const TodoItem: React.FC<TodoItemProps> = ({ todo, onUpdate, onDelete }) => {
@@ -19,7 +19,7 @@ const TodoItem: React.FC<TodoItemProps> = ({ todo, onUpdate, onDelete }) => {
 
   return (
     <div style={styles.container}>
-      <span>{todo.name}</span>
+      <span data-testid={`todo-name-${todo.id}`}>{todo.name}</span>
       <div style={styles.buttonsContainer}>
         {!todo.completed && (
           <>
@@ -30,13 +30,18 @@ const TodoItem: React.FC<TodoItemProps> = ({ todo, onUpdate, onDelete }) => {
                 backgroundColor: "#28a745",
                 color: "#fff",
               }}
+              data-testid={`done-todo-btn-${todo.id}`}
             >
               Done
             </button>
             <div style={{ width: 5 }} />
           </>
         )}
-        <button onClick={() => onDelete(todo.id)} style={styles.button}>
+        <button 
+          onClick={() => onDelete(todo.id)} 
+          style={styles.button}
+          data-testid={`delete-todo-btn-${todo.id}`}
+        >
           Delete
         </button>
       </div>

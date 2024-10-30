@@ -46,11 +46,6 @@ export const todoList = [
   },
   {
     id: 10,
-    name: "Plan Weekend Trip",
-    completed: false,
-  },
-  {
-    id: 11,
     name: "React Native New",
     completed: false,
   },
