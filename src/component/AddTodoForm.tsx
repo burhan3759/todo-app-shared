@@ -44,7 +44,6 @@ const styles: { [key: string]: React.CSSProperties } = {
   },
   input: {
     flex: 1,
-    borderBottom: "1px solid #ddd",
     marginRight: "10px",
     padding: "5px",
   },

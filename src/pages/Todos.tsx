@@ -1,26 +1,18 @@
 import React from "react";
-import { useTodos } from "../shared/hooks/useTodo";
-import { useTodoActions } from "../shared/hooks/useTodoActions";
 import TodoItem from "../component/TodoItem";
 import AddTodoForm from "../component/AddTodoForm";
 import "../styles.css";
 
+import { todoList } from "../shared/data/todoList";
+
 const Todos: React.FC = () => {
-  const { todos, addTodo, updateTodo, deleteTodo } = useTodos();
-  const { filteredTodos, showCompleted, toggleShowCompleted, searchTodos } =
-    useTodoActions({ todos });
 
   const handleAddTodo = (newTodo: string) => {
-    addTodo(newTodo);
+    // code here ...
   };
 
   const handleDelete = (id: number) => {
-    const confirmDelete = window.confirm(
-      "Are you sure you want to delete this todo?"
-    );
-    if (confirmDelete) {
-      deleteTodo(id);
-    }
+    // code here ...
   };
 
   return (
@@ -29,32 +21,33 @@ const Todos: React.FC = () => {
       <input
         type="text"
         placeholder="Search todos"
-        onChange={(e) => searchTodos(e.target.value)}
+        onChange={(e) => console.log(e.target.value)}
         style={styles.searchInput}
         data-testid="search-input"
       />
 
       <AddTodoForm addTodo={handleAddTodo} />
 
+      {/* Sample code for toggle button */}
+      {/*
       <button 
-        onClick={toggleShowCompleted} 
+        onClick={() => {}} 
         style={styles.button} 
         data-testid="toggle-completed-btn"
       >
+        
         {showCompleted ? "Hide Completed" : "Show Completed"}
-      </button>
+      </button> 
+      */}
 
       <div style={styles.spacing} />
             
       <ul style={styles.todoList} data-testid="todo-item">
-        {filteredTodos.map((item) => (
-          <TodoItem
-            key={item.id}
-            todo={item}
-            onUpdate={updateTodo}
-            onDelete={handleDelete}
-          />
-        ))}
+        <TodoItem
+          todo={{ id: 1, desc: "Sample Learn React", completed: false }}
+          onUpdate={() => {}}
+          onDelete={() => {}}
+        />
       </ul>
     </div>
   );
