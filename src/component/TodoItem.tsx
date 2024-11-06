@@ -12,33 +12,29 @@ interface TodoItemProps {
   onDelete: (id: number) => void;
 }
 
-const TodoItem: React.FC<TodoItemProps> = ({ todo, onUpdate, onDelete }) => {
-  const handleChange = () => {
-    onUpdate(todo.id, { ...todo, completed: !todo.completed });
+const TodoItem: React.FC<TodoItemProps> = ({ todo }) => {
+  const handleDone = () => {
+    // code here...
   };
 
   return (
     <div style={styles.container}>
-      <span data-testid={`todo-desc-${todo.id}`}>{todo.desc}</span>
+      <span data-testid={`todo-desc-${todo.id}`}>Sample Todo</span>
       <div style={styles.buttonsContainer}>
-        {!todo.completed && (
-          <>
-            <button
-              onClick={handleChange}
-              style={{
-                ...styles.button,
-                backgroundColor: "#28a745",
-                color: "#fff",
-              }}
-              data-testid={`done-todo-btn-${todo.id}`}
-            >
-              Done
-            </button>
-            <div style={{ width: 5 }} />
-          </>
-        )}
+        <button
+          onClick={handleDone}
+          style={{
+            ...styles.button,
+            backgroundColor: "#28a745",
+            color: "#fff",
+          }}
+          data-testid={`done-todo-btn-${todo.id}`}
+        >
+          Done
+        </button>
+        <div style={{ width: 5 }} />
         <button 
-          onClick={() => onDelete(todo.id)} 
+          onClick={() => {}}
           style={styles.button}
           data-testid={`delete-todo-btn-${todo.id}`}
         >

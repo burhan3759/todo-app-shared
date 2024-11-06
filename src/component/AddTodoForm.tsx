@@ -4,14 +4,11 @@ interface AddTodoProps {
   addTodo: (text: string) => void;
 }
 
-const AddTodoForm: React.FC<AddTodoProps> = ({ addTodo }) => {
+const AddTodoForm: React.FC<AddTodoProps> = () => {
   const [text, setText] = useState<string>("");
 
   const handleAddTodo = () => {
-    if (text.trim()) {
-      addTodo(text);
-      setText("");
-    }
+    // code here...
   };
 
   return (
