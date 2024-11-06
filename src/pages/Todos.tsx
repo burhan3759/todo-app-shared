@@ -12,6 +12,10 @@ const Todos: React.FC = () => {
   };
 
   const handleDelete = (id: number) => {
+    // const confirmDelete = window.confirm(
+    //   "Are you sure you want to delete this?"
+    // );
+
     // code here ...
   };
 
