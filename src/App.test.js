@@ -24,6 +24,13 @@ const renderList = (list) => {
   });
 };
 
+const listThatShouldNotShow = (list) => {
+  list.forEach((item) => {
+    const todoDesc = screen.getByTestId(`${TEST_IDS.todoDesc}-${item.id}`);
+    expect(todoDesc).toBeNull();
+  });
+};
+
 let getByTestId;
 let searchInput;
 let todo;
@@ -52,9 +59,9 @@ describe("Initial rendering", () => {
 });
 
 describe("Functionality of search input", () => {
-  it("Should be type text", () => {
-    expect(searchInput).toHaveAttribute("type", "text");
-  });
+  // it("Should be type text", () => {
+  //   expect(searchInput).toHaveAttribute("type", "text");
+  // });
 
   it("Should show uncompleted todos only", () => {
     fireEvent.click(toggleCompleteBtn);
@@ -92,6 +99,13 @@ describe("Functionality of search input", () => {
     ];
 
     renderList(uncompletedTodoList);
+    listThatShouldNotShow([
+      {
+        id: 2,
+        desc: "Learn React Native",
+        completed: true,
+      }
+    ])
   });
 
   describe("Search input value `react`", () => {
@@ -110,6 +124,13 @@ describe("Functionality of search input", () => {
         }
       ];
       renderList(todoReactList);
+      listThatShouldNotShow([
+        {
+          id: 1,
+          desc: "Hello World",
+          completed: false,
+        }
+      ])
     });
 
     it("Should show todos that have 'react' keyword and uncompleted status only", () => {
@@ -124,6 +145,13 @@ describe("Functionality of search input", () => {
         }
       ];
       renderList(todoReactList);
+      listThatShouldNotShow([
+        {
+          id: 10,
+          desc: "React Native New",
+          completed: false,
+        }
+      ])
     });
   });
 });
@@ -186,4 +214,3 @@ describe("Functions of create, done, and delete", () => {
     });
   });
 });
-

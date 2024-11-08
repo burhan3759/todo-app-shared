@@ -12,9 +12,9 @@ const Todos: React.FC = () => {
   };
 
   const handleDelete = (id: number) => {
-    // const confirmDelete = window.confirm(
-    //   "Are you sure you want to delete this?"
-    // );
+    const confirmDelete = window.confirm(
+      "Are you sure you want to delete this?"
+    );
 
     // code here ...
   };
@@ -33,16 +33,14 @@ const Todos: React.FC = () => {
       <AddTodoForm addTodo={handleAddTodo} />
 
       {/* Sample code for toggle button */}
-      {/*
       <button 
         onClick={() => {}} 
         style={styles.button} 
         data-testid="toggle-completed-btn"
       >
-        
-        {showCompleted ? "Hide Completed" : "Show Completed"}
+        {/* {showCompleted ? "Hide Completed" : "Show Completed"} */}
+        Toggle Btn
       </button> 
-      */}
 
       <div style={styles.spacing} />
             
