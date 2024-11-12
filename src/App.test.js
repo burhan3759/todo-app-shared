@@ -59,9 +59,9 @@ describe("Initial rendering", () => {
 });
 
 describe("Functionality of search input", () => {
-  // it("Should be type text", () => {
-  //   expect(searchInput).toHaveAttribute("type", "text");
-  // });
+  it("Should be type text", () => {
+    expect(searchInput).toHaveAttribute("type", "text");
+  });
 
   it("Should show uncompleted todos only", () => {
     fireEvent.click(toggleCompleteBtn);
