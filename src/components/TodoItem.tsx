@@ -8,8 +8,8 @@ interface Todo {
 
 interface TodoItemProps {
   todo: Todo;
-  onUpdate: (id: number, updatedTodo: Todo) => void;
-  onDelete: (id: number) => void;
+  onUpdate: () => void; // edit this line if needed
+  onDelete: () => void; // edit this line if needed
 }
 
 const TodoItem: React.FC<TodoItemProps> = ({ todo }) => {

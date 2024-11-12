@@ -1,6 +1,6 @@
 import React from "react";
-import TodoItem from "../component/TodoItem";
-import AddTodoForm from "../component/AddTodoForm";
+import TodoItem from "../components/TodoItem";
+import AddTodoForm from "../components/AddTodoForm";
 import "../styles.css";
 
 import { todoList } from "../shared/data/todoList";
@@ -45,6 +45,7 @@ const Todos: React.FC = () => {
       <div style={styles.spacing} />
             
       <ul style={styles.todoList} data-testid="todo-item">
+        
         <TodoItem
           todo={{ id: 1, desc: "Sample Learn React", completed: false }}
           onUpdate={() => {}}
